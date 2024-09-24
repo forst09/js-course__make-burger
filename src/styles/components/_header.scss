@@ -1,0 +1,21 @@
+.header {
+    &__container,
+    &__left,
+    &__right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__left {
+        gap: 80px;
+    }
+
+    &__right {
+        gap: 60px;
+    }
+
+    &__menu {
+        display: none;
+    }
+}

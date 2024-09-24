@@ -1,0 +1,59 @@
+@use 'mixin' as m;
+
+html,
+body {
+	position: relative;
+	font-family: 'OpenSans', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: normal;
+	color: var(--text-primary);
+	height: 100%;
+}
+
+body {
+	touch-action: pan-x pan-y;
+	background-color: var(--bg-primary);
+	overflow-x: hidden;
+}
+
+.img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+.scroll-lock {
+	overflow-y: hidden;
+}
+ 
+@include m.tablet {
+	.container {
+		padding: 0 16px;
+	}
+}
+
+@include m.tablet-s {
+	body {
+		font-size: 16px;
+	}
+}

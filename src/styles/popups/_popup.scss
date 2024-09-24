@@ -1,0 +1,17 @@
+.popup {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border: none;
+    max-width: calc(100% - 40px);
+
+    &__wrapper {        
+        padding: 40px;
+    }
+
+    &__close {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+}
