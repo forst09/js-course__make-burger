@@ -7,12 +7,12 @@ export default function tabs() {
                 e.preventDefault();
 
                 tabBtns.forEach(item => {
-                    item.classList.remove('btn--active');
+                    item.classList.remove('tabs-btns__btn--active');
                 });
                 
                 const tabId = btn.getAttribute('data-tab');
                 
-                [...tabBtns].find(btn => (btn.closest('.header') && btn.getAttribute('data-tab') === tabId)).classList.add('btn--active');
+                [...tabBtns].find(btn => (btn.closest('.header') && btn.getAttribute('data-tab') === tabId)).classList.add('tabs-btns__btn--active');
 
                 tabWraps.forEach(wrap => {
                     wrap.classList.remove('active');
@@ -23,7 +23,7 @@ export default function tabs() {
             })
         });
 
-        tabWraps[1].classList.add('active');
-        tabBtns[1].classList.add('tabs-btns__btn--active');
+        tabWraps[0].classList.add('active');
+        tabBtns[0].classList.add('tabs-btns__btn--active');
     }
 }

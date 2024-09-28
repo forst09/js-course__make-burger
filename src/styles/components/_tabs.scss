@@ -1,18 +1,45 @@
+@use "../utils/mixin" as m;
+
 .tabs-btns {
     display: flex;
     align-items: center;
     gap: 59px;
 
     &__btn {
+        position: relative;
         padding: 14px 0;
         font-family: 'OpenSans', sans-serif;
         font-size: 16px;
         font-weight: 400;
         line-height: 1.25em;
         background-color: transparent;
+        transition: font-weight 0.3s ease;
+
+        @include m.hover {
+            &:hover {
+                font-weight: 600;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease, bottom 0.3s ease;
+        }
 
         &.tabs-btns__btn--active {
             font-weight: 600;
+
+            &::after {
+                bottom: 0;
+                opacity: 1;
+            }
         }
     }
 }

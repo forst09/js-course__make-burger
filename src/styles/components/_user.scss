@@ -1,0 +1,130 @@
+@use "../utils/mixin" as m;
+.user {
+    position: relative;
+
+    @include m.hover {
+        &:hover {
+            .user__dropdown {
+                opacity: 1;
+                top: 100%;
+                pointer-events: all;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-titan-white);
+        width: 58px;
+        aspect-ratio: 1;
+        border-radius: var(--br-xl);
+    }
+
+    &__country {
+        margin-left: -10px;
+        margin-top: 15px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid var(--primary-titan-white);
+        border-radius: 100%;
+    }
+
+    &__icon {
+        width: 24px;
+        aspect-ratio: 1;
+    }
+
+    &__name {
+        display: none;
+    }
+
+    &__dropdown {
+        position: absolute;
+        right: 0;
+        top: 95%;
+        padding-top: 18px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, top 0.3s ease;
+    }
+
+    &__drowdown-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 16px;
+        background-color: var(--primary-white);
+        box-shadow: var(--shadow);
+        width: 209px;
+        border-radius: var(--br-s);
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: -10px;
+            width: 20px;
+            height: 10px;
+            background-image: url("/icons/triangle.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__navigation {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -16px;
+            width: 100%;
+            height: 1px;
+            background-color: var(--primary-black-squeeze);
+        }
+    }
+
+    &__navigation-item {
+        padding: 8px;
+        position: relative;
+        border-radius: var(--br-xs);
+
+        &--active {
+            background-color: var(--primary-titan-white);
+
+            .user__navigation-link {
+                font-weight: 600;
+            }
+        }
+
+        &--red {
+            color: var(--primary-danger);
+        }
+    }
+
+    &__navigation-link {
+        font-size: 14px;
+        line-height: 1.42em;
+        transition: font-weight 0.3s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @include m.hover {
+            &:hover {
+                font-weight: 600;
+            }
+        }
+    }
+}

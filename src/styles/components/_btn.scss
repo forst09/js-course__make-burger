@@ -1,139 +1,63 @@
 @use '../utils/mixin' as m;
 
-.btn {
-    position: relative;
-    padding: 8px;
-    min-width: 98px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    line-height: normal;
-    color: var(--btn-color);
-    background-color: var(--btn-bg);
-    border: 1px solid var(--btn-stroke);
-    border-radius: var(--br-s);
-    font-weight: 400;
-    overflow: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    &--active {
-        background-color: var(--btn-active-bg);
-        color: var(--btn-active-color);
-    }
-
-    @include m.hover {
-        &:hover {
-            background-color: var(--btn-active-bg);
-            color: var(--btn-active-color);
-        }
-    }
-}
-
-.link-underline {
-    text-decoration: underline;
-    transition: color 0.3s ease;
-
-    @include m.hover {
-        &:hover {
-            color: var(--link-hover);
-        }
-    }
-}
-
-.btn-submit {
-    min-width: 250px;
-    padding: 15px;
-    background-color: var(--btn-submit-bg);
-    color: var(--btn-submit-color);
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border-radius: var(--br-l);
-    border: 1px solid var(--btn-submit-bg);
-    transition: color 0.3s ease, background-color 0.3s ease;
-
-    @include m.hover {
-        &:hover {
-            background-color: var(--btn-submit-bg-hover);
-            color: var(--btn-submit-color-hover);
-        }
-    }
-}
-
-.btn-social {
-    position: relative;
-    display: flex;
-    align-items: center;
+.btn-text-icon {
+    display: inline-flex;
+    padding: 6px 12px;
     justify-content: center;
-    gap: 12px;
-    padding: 17px;
-    max-width: 578px;
-    width: 100%;
-    background-color: var(--btn-social-bg);
-    color: var(--btn-social-color);
-    border: 1px solid var(--btn-stroke);
+    align-items: center;
+    gap: 4px;
+    background-color: var(--red-red-200);
+    color: var(--primary-danger);
     border-radius: var(--br-xl);
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25em; 
     transition: background-color 0.3s ease, color 0.3s ease;
 
     &::before {
         content: '';
+        width: 16px;
         aspect-ratio: 1;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        mask-position: center center;
+        background-color: var(--primary-danger);
+        transition: background-color .3s ease;
     }
 
-    &--google {
+    &--phone {
         &::before {
-            width: 24px;
-            background-image: url("/icons/google.svg");
+            mask-image: url("/icons/phone.svg");
         }
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
     }
 
     @include m.hover {
         &:hover {
-            background-color: var(--btn-social-bg-hover);
-            color: var(--btn-social-color-hover);
+            background-color: var(--primary-danger);
+            color: var(--primary-titan-white);
+
+            &::before {
+                background-color: var(--primary-titan-white);
+            }
         }
     }
 }
 
-.btn-close {
-    width: 24px;
-    aspect-ratio: 1;
-    mask-image: url("/icons/close.svg");
-    mask-repeat: no-repeat;
-    mask-size: cover;
-    mask-position: center;
-    background-color: var(--icon);
-    transition: background-color 0.3s ease;
+.link-text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25em;
+    color: var(--primary-black);
+    transition: color 0.3s ease;
 
     @include m.hover {
         &:hover {
-            background-color: var(--icon-dark);
+            color: var(--primary-primary);
         }
-    }
-}
-
-@include m.tablet {
-    .btn-submit {
-        width: 100%;
-    }
-}
-
-@include m.tablet-s {
-    .btn-social {
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    .btn-submit {
-        font-size: 18px;
-        padding: 12px;
     }
 }
