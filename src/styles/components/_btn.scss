@@ -1,5 +1,43 @@
 @use '../utils/mixin' as m;
 
+.btn-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    aspect-ratio: 1;
+    padding: 20px;
+    color: var(--primary-white);
+    text-align: center;
+    font-family: "OpenSans", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.25em;
+    text-transform: uppercase;
+    border-radius: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        aspect-ratio: 1;
+        background-color: var(--primary-primary);
+        border-radius: 100%;
+        z-index: -1;
+        transition: background-color 0.3s ease, width 0.3s ease;
+    }
+
+    @include m.hover {
+        &:hover {
+            &::before {
+                width: calc(100% + 40px);
+                background-color: var(--indigo-indigo-600);
+            }
+        }
+    }
+}
+
 .btn-text-icon {
     display: inline-flex;
     padding: 6px 12px;

@@ -1,76 +1,29 @@
 @use "../utils/mixin" as m;
 
 .main {
-    --main-height: calc(100vh - var(--header-height));
-
-    display: flex;
-    min-height: calc(100vh - var(--header-height));
-
-    &__img {
-        width: 54%;
-    }
-
-    &__img-img {
-        object-position: center 40%;
-    }
-
-    &__form-wrapper {
-        position: relative;
-        width: 46%;
-        height: 100%;
-    }
-
-    &__form {
-        margin-top: 40px;
-    }
-
-    &__form-wrap-form {
-        padding: 103px 93px;
-    }
-}
-
-@include m.laptop {
-    .main {
-        position: relative;
+    &__wrapper {
+        padding: 0 109px;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        padding: 40px 0;
-
-        &__img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        &__form-wrapper {
-            background: var(--bg-primary);
-            overflow: hidden;
-            width: 100%;
-            max-width: 600px;
-        }
     }
-}
 
-@include m.tablet {
-    .main {
-        &__form-wrap-form {
-             padding: 53px 43px;
-        }
-
-        &__form {
-            margin-top: 24px;
-        }
+    &__content {
+        display: flex;
+        align-items: center;
     }
-}
 
-@include m.tablet-s {
-    .main {
-        padding: 40px 16px;
+    &__img {        
+        max-height: calc(100vh - var(--header-height) - 32px - 12px);
+        aspect-ratio: 1 / 0.96;
+    }
 
-        &__form-wrap-form {
-            padding: 24px 12px;
-        }
+    &__btn {
+        transform: translate(58%, 107%);
+    }
+
+    &__title {
+        transform: translateX(10px);
+        max-width: 260px;
     }
 }
