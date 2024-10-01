@@ -1,5 +1,29 @@
 @use '../utils/mixin' as m;
 
+.btn {
+    padding: 16px;
+    font-family: "OpenSans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25em;
+    background-color: var(--primary-primary);
+    color: var(--primary-titan-white);
+    border-radius: var(--br-xl);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:disabled {
+        pointer-events: none;
+        background-color: var(--primary-titan-white);
+        color: var(--primary-muted);
+    }
+
+    @include m.hover {
+        &:hover {
+            background-color: var(--indigo-indigo-600);
+        }
+    }
+}
+
 .btn-hero {
     position: relative;
     display: flex;

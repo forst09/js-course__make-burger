@@ -27,7 +27,7 @@ export default function tabs() {
             })
         });
 
-        tabBtns[0].click();
+        tabBtns[1].click();
         // tabWraps[0].classList.add('active');
         // tabBtns[0].classList.add('tabs-btns__btn--active');
     }

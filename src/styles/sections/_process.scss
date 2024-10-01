@@ -1,0 +1,17 @@
+.process {
+    padding-top: 52px;
+
+    &__wrapper {
+        padding: 0 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        width: 70%;
+        gap: 37px;
+    }
+}
