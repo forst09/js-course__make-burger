@@ -1,0 +1,12 @@
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__input {
+        max-width: 48px;
+        border: none;
+        padding: 0 8px;
+        text-align: center;
+    }
+}

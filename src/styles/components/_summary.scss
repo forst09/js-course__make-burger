@@ -1,3 +1,5 @@
+@use "../utils/mixin" as m;
+
 .summary {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
         gap: 16px;
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: -24px;
             left: 0;
@@ -26,7 +28,7 @@
             border-radius: var(--br-xl);
         }
     }
-    
+
     &__actions-wrapper {
         display: flex;
         flex-direction: column;
@@ -76,5 +78,28 @@
             padding: 5px;
             background-color: var(--primary-danger);
         }
+    }
+
+    &__ketchup {
+        margin-top: 45px;
+        display: inline-flex;
+        align-self: flex-start;
+        align-items: center;
+        gap: 8px;
+        background-color: transparent;
+        font-family: "OpenSans", sans-serif;
+
+        @include m.hover {
+            &:hover {
+                .summary__ketchup-accent {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    &__ketchup-accent {
+        color: var(--primary-danger);
+        transition: opacity 0.3s ease;
     }
 }

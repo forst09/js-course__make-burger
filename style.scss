@@ -1,21 +1,23 @@
-@use '/src/styles/utils/reset';
+@use "/src/styles/utils/reset";
 
-@use '/src/styles/utils/mixin';
-@use '/src/styles/utils/fonts';
-@use '/src/styles/utils/variables';
-@use '/src/styles/utils/common';
+@use "/src/styles/utils/mixin";
+@use "/src/styles/utils/fonts";
+@use "/src/styles/utils/variables";
+@use "/src/styles/utils/common";
 
-@use '/src/styles/components/btn';
-@use '/src/styles/components/title';
-@use '/src/styles/components/header';
-@use '/src/styles/components/container';
-@use '/src/styles/components/logo';
-@use '/src/styles/components/tabs';
-@use '/src/styles/components/user';
-@use '/src/styles/components/summary';
-@use '/src/styles/components/burger';
-@use '/src/styles/components/text';
-@use '/src/styles/components/hint';
+@use "/src/styles/components/btn";
+@use "/src/styles/components/title";
+@use "/src/styles/components/header";
+@use "/src/styles/components/container";
+@use "/src/styles/components/logo";
+@use "/src/styles/components/tabs";
+@use "/src/styles/components/user";
+@use "/src/styles/components/summary";
+@use "/src/styles/components/burger";
+@use "/src/styles/components/text";
+@use "/src/styles/components/hint";
+@use "/src/styles/components/ingredients";
+@use "/src/styles/components/quantity";
 
-@use '/src/styles/sections/main';
-@use '/src/styles/sections/process';
+@use "/src/styles/sections/main";
+@use "/src/styles/sections/process";

@@ -1,0 +1,26 @@
+.ingredients {
+    margin-top: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 18px;
+        max-width: 140px;
+        border: 1px solid var(--primary-black-squeeze);
+        border-radius: var(--br-m);
+    }
+
+    &__card-title {
+        text-align: center;
+    }
+
+    &__card-img {
+        padding: 5px 0;
+        height: 59px;
+    }
+}

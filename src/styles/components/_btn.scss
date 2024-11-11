@@ -1,4 +1,4 @@
-@use '../utils/mixin' as m;
+@use "../utils/mixin" as m;
 
 .btn {
     padding: 16px;
@@ -9,7 +9,9 @@
     background-color: var(--primary-primary);
     color: var(--primary-titan-white);
     border-radius: var(--br-xl);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 
     &:disabled {
         pointer-events: none;
@@ -42,14 +44,16 @@
     border-radius: 100%;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         width: 100%;
         aspect-ratio: 1;
         background-color: var(--primary-primary);
         border-radius: 100%;
         z-index: -1;
-        transition: background-color 0.3s ease, width 0.3s ease;
+        transition:
+            background-color 0.3s ease,
+            width 0.3s ease;
     }
 
     @include m.hover {
@@ -73,18 +77,20 @@
     border-radius: var(--br-xl);
     font-size: 16px;
     font-weight: 600;
-    line-height: 1.25em; 
-    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.25em;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 
     &::before {
-        content: '';
+        content: "";
         width: 16px;
         aspect-ratio: 1;
         mask-repeat: no-repeat;
         mask-size: cover;
         mask-position: center center;
         background-color: var(--primary-danger);
-        transition: background-color .3s ease;
+        transition: background-color 0.3s ease;
     }
 
     &--phone {
@@ -120,6 +126,58 @@
     @include m.hover {
         &:hover {
             color: var(--primary-primary);
+        }
+    }
+}
+
+.btn-ghost-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+    background-color: var(--primary-titan-white);
+    border-radius: 100%;
+    transition:
+        background-color 0.3s ease,
+        opacity 0.3s ease;
+
+    &:disabled {
+        background-color: var(--primary-titan-white);
+        opacity: 0.5;
+        pointer-events: none;
+
+        .btn-ghost-sm__icon--fill {
+            fill: var(--primary-muted);
+        }
+
+        .btn-ghost-sm__icon--stroke {
+            stroke: var(--primary-muted);
+        }
+    }
+
+    &__icon--fill {
+        fill: var(--primary-primary);
+        transition: fill 0.3s ease;
+    }
+
+    &__icon--stroke {
+        stroke: var(--primary-primary);
+        transition: stroke 0.3s ease;
+    }
+
+    @include m.hover {
+        &:hover {
+            background-color: var(--primary-primary);
+
+            .btn-ghost-sm__icon--stroke {
+                stroke: var(--primary-titan-white);
+            }
+
+            .btn-ghost-sm__icon--fill {
+                fill: var(--primary-titan-white);
+            }
         }
     }
 }
