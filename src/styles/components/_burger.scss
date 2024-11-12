@@ -1,13 +1,14 @@
 .burger {
     position: relative;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     width: 55.4%;
     aspect-ratio: 1;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         width: 100%;
@@ -17,5 +18,31 @@
         background-repeat: no-repeat;
         background-size: cover;
         z-index: -1;
+    }
+
+    &__item {
+        height: fit-content;
+
+        &--bottom-bun {
+            aspect-ratio: 1 / 0.3;
+            z-index: 0;
+        }
+
+        &:not(.burger__item--bottom-bun) {
+            position: absolute;
+            translate: 0 50%;
+        }
+
+        &--cutlet {
+            width: 73%;
+            aspect-ratio: 1 / 0.34;
+            // translate: 0 65%;
+        }
+
+        &--mayo {
+            width: 82%;
+            aspect-ratio: 1 / 0.2;
+            // translate: 0 75%;
+        }
     }
 }

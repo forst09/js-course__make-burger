@@ -14,6 +14,8 @@ export default function burger() {
     const totalWeightEl = document.querySelector('.summary__total-weight');
     const totalCalorieEl = document.querySelector('.summary__total-calorie');
 
+    document.querySelector('.burger__item').style.zIndex = 0;
+
     const btnsPlus = document.querySelectorAll('.quantity__btn--plus');
     for (let btn of btnsPlus) {
         btn.addEventListener('click', () => {
