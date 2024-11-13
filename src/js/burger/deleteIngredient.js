@@ -16,6 +16,26 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
 
         quantity--;
         item.querySelector('.quantity__input').value = quantity;
+
+        const items = Array.from(document.querySelectorAll('.burger__item'));
+
+        for (item of items) {
+            if (item.classList.contains(`burger__item--${name}`)) {
+                document.querySelector(`.burger__item--${name}`).remove();
+
+                break;
+            }
+            else {
+                item.style.bottom = `${parseInt(item.style.bottom) - (document.querySelector(`.burger__item--${name}`).clientHeight / 2)}px`;
+            }
+        }
+
+        // console.log(Array.from(items));
+
+
+
+
+
     }
     else {
         target.disabled = true;

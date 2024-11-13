@@ -19,33 +19,46 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
 
     item.querySelector('.quantity__btn--minus').disabled = false;
 
-    function pasteIngredient(ingredient) {
-        const element = document.createElement('div');
-        element.classList.add('burger__item');
-
+    function pasteIngredient(name) {
         const prevItemY = burgerEl.getBoundingClientRect().bottom - burgerEl.querySelector('.burger__item').getBoundingClientRect().bottom + burgerEl.querySelector('.burger__item').clientHeight;
         const prevZIndex = burgerEl.querySelector('.burger__item').style.zIndex;
 
-        console.log(burgerEl.getBoundingClientRect().bottom);
-        console.log(burgerEl.querySelector('.burger__item').getBoundingClientRect().bottom);
-        console.log(burgerEl.querySelector('.burger__item').clientHeight);
+        const element = document.createElement('div');
+        element.classList.add('burger__item');
 
-        console.log(prevItemY, prevZIndex, +prevZIndex + 1);
+        switch (name) {
+            case 'onion': {
+                element.innerHTML = `
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />`;
+                break;
+            }
+            case 'tomato': {
+                element.innerHTML = `
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />`;
+                break;
+            }
+            case 'cucumber': {
+                element.innerHTML = `
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />
+                    <img class="img__img" src="/img/burger/${name}.png" alt=${name} />`;
+                break;
+            }
+            default: {
+                element.innerHTML = `<img class="img__img" src="/img/burger/${name}.png" alt=${name} />`;
+                break;
+            }
+        }
 
         element.style.bottom = `${prevItemY}px`;
         element.style.zIndex = +prevZIndex + 1;
-        element.innerHTML = `<img class="img__img" src="/img/burger/${name}.png" alt=${name} />`;
 
-        switch (ingredient) {
-            case 'cutlet': {
-                element.classList.add('burger__item--cutlet');
-                break;
-            }
-            case 'mayo': {
-                element.classList.add('burger__item--mayo');
-                break;
-            }
-        };
+
+        element.classList.add(`burger__item--${name}`);
+
         burgerEl.prepend(element);
 
         gsap.from(element, {

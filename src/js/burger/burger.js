@@ -7,7 +7,7 @@ export default function burger() {
     let totalWeight = 0;
     let totalCalorie = 0;
 
-    const burger = ['bunBottom'];
+    // const burger = ['bunBottom'];
 
     const totalCostEl = document.querySelector('.summary__total');
     const totalTimeEl = document.querySelector('.summary__total-time');
