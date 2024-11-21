@@ -21,20 +21,15 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
 
         for (item of items) {
             if (item.classList.contains(`burger__item--${name}`)) {
-                document.querySelector(`.burger__item--${name}`).remove();
-
+                item.remove();
                 break;
             }
             else {
-                item.style.bottom = `${parseInt(item.style.bottom) - (document.querySelector(`.burger__item--${name}`).clientHeight / 2)}px`;
+                const calculateBottom = parseInt(item.style.bottom) - (document.querySelector(`.burger__item--${name}`).clientHeight / 3);
+
+                item.style.bottom = `${calculateBottom}px`;
             }
         }
-
-        // console.log(Array.from(items));
-
-
-
-
 
     }
     else {

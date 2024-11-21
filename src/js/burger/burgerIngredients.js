@@ -1,7 +1,7 @@
 const burgerIngredients = {
     bunTop: {
-        cost: 0.25,
-        time: 0.5,
+        cost: 0,
+        time: 0.2,
         weight: 60,
         calorie: 70,
     },

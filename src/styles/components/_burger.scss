@@ -23,27 +23,30 @@
     &__item {
         height: fit-content;
         transition: bottom 0.5s ease;
+        position: absolute;
+        // translate: 0 50%;
 
         &--bottom-bun {
-            aspect-ratio: 1 / 0.3;
+            position: static;
+            translate: unset;
+            width: 100%;
+            // aspect-ratio: 1 / 0.25;
             z-index: 0;
         }
 
-        &:not(.burger__item--bottom-bun) {
-            position: absolute;
-            translate: 0 50%;
-        }
-
         &--cutlet {
-            width: 73%;
-            aspect-ratio: 1 / 0.34;
+            width: 83%;
+            // aspect-ratio: 1 / 0.34;
             // translate: 0 65%;
+            // transform: translate(0, 65%);
         }
 
         &--mayo {
-            width: 82%;
-            aspect-ratio: 1 / 0.2;
+            width: 85%;
+            // translate: 0 25%;
+            // aspect-ratio: 1 / 0.2;
             // translate: 0 75%;
+            // transform: translate(0, 50%);
         }
 
         &--onion,
@@ -67,7 +70,9 @@
         }
 
         &--cheese {
-            width: 75%;
+            width: 80%;
+            // translate: 0 25%;
+            // transform: translate(0, 25%);
         }
 
         &--salad {
@@ -75,7 +80,13 @@
         }
 
         &--bunMiddle {
-            width: 80%;
+            width: 82%;
+        }
+
+        &--bunTop {
+            width: 82%;
+            // translate: 0 25%;
+            // transform: translate(0, -30%);
         }
     }
 }

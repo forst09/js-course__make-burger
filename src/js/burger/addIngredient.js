@@ -20,8 +20,10 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
     item.querySelector('.quantity__btn--minus').disabled = false;
 
     function pasteIngredient(name) {
-        const prevItemY = burgerEl.getBoundingClientRect().bottom - burgerEl.querySelector('.burger__item').getBoundingClientRect().bottom + burgerEl.querySelector('.burger__item').clientHeight;
-        const prevZIndex = burgerEl.querySelector('.burger__item').style.zIndex;
+        const prevElement = burgerEl.querySelector('.burger__item');
+
+        const prevItemY = burgerEl.getBoundingClientRect().bottom - prevElement.getBoundingClientRect().bottom + prevElement.clientHeight;
+        const prevZIndex = prevElement.style.zIndex;
 
         const element = document.createElement('div');
         element.classList.add('burger__item');
@@ -53,18 +55,46 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
             }
         }
 
-        element.style.bottom = `${prevItemY}px`;
-        element.style.zIndex = +prevZIndex + 1;
+        let offset = 0;
 
+        if (prevElement.classList.contains('burger__item--salad')) {
+            offset = 40;
+        }
+        else if (prevElement.classList.contains('burger__item--cutlet') || prevElement.classList.contains('burger__item--mayo') || prevElement.classList.contains('burger__item--bunMiddle') || prevElement.classList.contains('burger__item--bottom-bun')) {
+            offset = 20;
+        }
+
+        element.style.bottom = `${prevItemY - offset}px`;
+        element.style.zIndex = +prevZIndex + 1;
 
         element.classList.add(`burger__item--${name}`);
 
         burgerEl.prepend(element);
 
-        gsap.from(element, {
+        let toY = '50%';
+
+        switch (name) {
+            case ('cheese'): {
+                toY = '75%';
+                break;
+            }
+            case ('bunTop'): {
+                toY = '25%';
+                break;
+            }
+            case ('mayo'): {
+                toY = '65%';
+                break;
+            }
+        }
+
+        gsap.fromTo(element, {
             y: -200,
             opacity: 0,
             duration: 0.7
+        }, {
+            y: toY,
+            opacity: 1
         })
     }
 
