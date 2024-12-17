@@ -1,5 +1,5 @@
-import burgerIngredients from "./burgerIngredients";
 import { gsap } from "gsap";
+import calcBurgerValues from "./calcBurgerValues";
 
 export default function addIngredient(item, totalCost, totalTime, totalWeight, totalCalorie) {
 
@@ -7,12 +7,7 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
     const name = item.getAttribute('data-name');
     let quantity = +item.querySelector('.quantity__input').value;
 
-    const { time, weight, calorie, cost } = burgerIngredients[name];
-
-    totalCost = +(totalCost + cost).toFixed(2);
-    totalTime = +(totalTime + time).toFixed(2);
-    totalWeight = +(totalWeight + weight).toFixed(2);
-    totalCalorie = +(totalCalorie + calorie).toFixed(2);
+    ({ totalCost, totalTime, totalWeight, totalCalorie } = calcBurgerValues(name, totalCost, totalTime, totalWeight, totalCalorie, 'plus'));
 
     quantity++;
     item.querySelector('.quantity__input').value = quantity;

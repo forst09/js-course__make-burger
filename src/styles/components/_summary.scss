@@ -1,6 +1,7 @@
 @use "../utils/mixin" as m;
 
 .summary {
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     gap: 24px;

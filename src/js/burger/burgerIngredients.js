@@ -53,6 +53,12 @@ const burgerIngredients = {
         weight: 10,
         calorie: 10,
     },
+    ketchup: {
+        cost: 1,
+        time: 0,
+        weight: 35,
+        calorie: 0,
+    }
 };
 
 export default burgerIngredients;

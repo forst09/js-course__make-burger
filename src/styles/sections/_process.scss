@@ -2,7 +2,7 @@
     padding-top: 52px;
 
     &__wrapper {
-        padding: 0 120px;
+        padding: 50px 120px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         width: 70%;
-        gap: 37px;
+        // gap: 37px;
+        gap: 90px;
     }
 }

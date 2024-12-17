@@ -1,4 +1,4 @@
-import burgerIngredients from "./burgerIngredients";
+import calcBurgerValues from "./calcBurgerValues";
 
 export default function addIngredient(target, item, totalCost, totalTime, totalWeight, totalCalorie) {
     const name = item.getAttribute('data-name');
@@ -7,12 +7,7 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
     if (quantity >= 1) {
         quantity === 1 ? target.disabled = true : target.disabled = false;
 
-        const { time, weight, calorie, cost } = burgerIngredients[name];
-
-        totalCost = +(totalCost - cost).toFixed(2);
-        totalTime = +(totalTime - time).toFixed(2);
-        totalWeight = +(totalWeight - weight).toFixed(2);
-        totalCalorie = +(totalCalorie - calorie).toFixed(2);
+        ({ totalCost, totalTime, totalWeight, totalCalorie } = calcBurgerValues(name, totalCost, totalTime, totalWeight, totalCalorie, 'minus'));
 
         quantity--;
         item.querySelector('.quantity__input').value = quantity;
