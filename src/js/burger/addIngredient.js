@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import calcBurgerValues from "./calcBurgerValues";
+import pasteWarning from "./pasteWarning";
 
 export default function addIngredient(item, totalCost, totalTime, totalWeight, totalCalorie) {
 
@@ -17,11 +18,19 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
     function pasteIngredient(name) {
         const prevElement = burgerEl.querySelector('.burger__item');
 
-        const prevItemY = burgerEl.getBoundingClientRect().bottom - prevElement.getBoundingClientRect().bottom + prevElement.clientHeight;
+        const prevItemY = (burgerEl.getBoundingClientRect().bottom + window.scrollY) - (prevElement.getBoundingClientRect().bottom + window.scrollY) + prevElement.clientHeight;
+        // const prevItemY = burgerEl.getBoundingClientRect().bottom - prevElement.getBoundingClientRect().bottom + prevElement.clientHeight;
         const prevZIndex = prevElement.style.zIndex;
 
         const element = document.createElement('div');
         element.classList.add('burger__item');
+
+        // console.log(prevElement.getBoundingClientRect().top, prevElement.getBoundingClientRect().top + window.scrollY);
+
+        if (prevElement.getBoundingClientRect().top + window.scrollY < 0) {
+            console.log('too much')
+            pasteWarning(burgerEl);
+        }
 
         switch (name) {
             case 'onion': {

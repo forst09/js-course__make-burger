@@ -23,6 +23,9 @@
     }
 
     &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: fit-content;
         transition: bottom 0.5s ease;
         position: absolute;

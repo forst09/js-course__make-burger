@@ -1,0 +1,37 @@
+.warning {
+    position: fixed;
+    top: calc(64px + 112px);
+    transform: translateX(100%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border-radius: var(--br-s);
+    background-color: var(--primary-white);
+    opacity: 0;
+    box-shadow: var(--shadow);
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 32px;
+        bottom: calc(100% - 1px);
+        width: 20px;
+        height: 10px;
+        background-image: url("/icons/triangle.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    &__icon {
+        width: 32px;
+        aspect-ratio: 1;
+    }
+}

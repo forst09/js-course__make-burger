@@ -14,6 +14,11 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
 
         const items = Array.from(document.querySelectorAll('.burger__item'));
 
+        const lastIngredient = document.querySelector('.burger__item');
+        const lastIngredientBottomInitial = parseInt(lastIngredient.style.bottom);
+
+        // console.log('first', lastIngredient.style.bottom, lastIngredient.getBoundingClientRect().top, lastIngredient.getBoundingClientRect().top + window.scrollY)
+
         for (item of items) {
             if (item.classList.contains(`burger__item--${name}`)) {
                 item.remove();
@@ -24,6 +29,14 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
 
                 item.style.bottom = `${calculateBottom}px`;
             }
+        }
+
+        // console.log('last', lastIngredient.style.bottom, lastIngredient.getBoundingClientRect().top, lastIngredient.getBoundingClientRect().top + window.scrollY)
+        const lastIngredientBottomNew = parseInt(lastIngredient.style.bottom);
+
+        if (lastIngredient.getBoundingClientRect().top + window.scrollY + (lastIngredientBottomInitial - lastIngredientBottomNew) > 0 && document.querySelector('.warning')) {
+            // console.log('delete warning')
+            document.querySelector('.warning').remove();
         }
 
     }
