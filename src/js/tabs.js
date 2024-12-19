@@ -20,6 +20,7 @@ export default function tabs() {
                 tabWraps.forEach(wrap => {
                     wrap.classList.remove('active', 'active--vertical', 'active--horizontal');
                     if (wrap.getAttribute('id') === tabId) {
+                        document.querySelector('.tabs').style.minHeight = `${wrap.querySelector('section').clientHeight}px`;
                         wrap.classList.add('active');
                         animationTabs(wrap, direction);
                     }

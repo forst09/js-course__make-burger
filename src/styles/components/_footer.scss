@@ -1,0 +1,62 @@
+@use "../utils/mixin" as m;
+
+.footer {
+    margin-top: 61px;
+    padding-bottom: 32px;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    &__copy {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__links {
+        display: flex;
+        gap: 15px;
+    }
+
+    &__link {
+        color: var(--primary-primary);
+        transition: color 0.3s ease;
+
+        &:not(:first-child) {
+            position: relative;
+
+            &::before {
+                content: "|";
+                position: absolute;
+                left: -7px;
+                transform: translateX(-50%);
+                color: var(--primary-muted);
+                min-width: 7px;
+            }
+        }
+
+        @include m.hover {
+            &:hover {
+                color: var(--primary-muted);
+            }
+        }
+    }
+
+    &__copy-copy {
+        color: var(--primary-muted);
+    }
+
+    &__payments {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__payments-item {
+        width: 35px;
+        height: 24px;
+    }
+}
