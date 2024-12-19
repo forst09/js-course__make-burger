@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import calcBurgerValues from "./calcBurgerValues";
 import pasteWarning from "./pasteWarning";
 
-export default function addIngredient(item, totalCost, totalTime, totalWeight, totalCalorie) {
+export default function addIngredient(item, totalCost, totalTime, totalWeight, totalCalorie, btnsPlus) {
 
     const burgerEl = document.querySelector('.burger');
     const name = item.getAttribute('data-name');
@@ -100,6 +100,12 @@ export default function addIngredient(item, totalCost, totalTime, totalWeight, t
             y: toY,
             opacity: 1
         })
+
+        if (name === 'bunTop') {
+            for (const btn of btnsPlus) {
+                btn.disabled = true;
+            }
+        }
     }
 
     pasteIngredient(name);

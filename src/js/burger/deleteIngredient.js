@@ -1,6 +1,6 @@
 import calcBurgerValues from "./calcBurgerValues";
 
-export default function addIngredient(target, item, totalCost, totalTime, totalWeight, totalCalorie) {
+export default function addIngredient(target, item, totalCost, totalTime, totalWeight, totalCalorie, btnsPlus) {
     const name = item.getAttribute('data-name');
     let quantity = +item.querySelector('.quantity__input').value;
 
@@ -43,6 +43,12 @@ export default function addIngredient(target, item, totalCost, totalTime, totalW
     }
     else {
         target.disabled = true;
+    }
+
+    if (name === 'bunTop') {
+        for (const btn of btnsPlus) {
+            btn.disabled = false;
+        }
     }
 
     return { totalCost, totalTime, totalWeight, totalCalorie };

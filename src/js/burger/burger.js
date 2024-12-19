@@ -25,7 +25,7 @@ export default function burger() {
     const btnsPlus = document.querySelectorAll('.quantity__btn--plus');
     for (let btn of btnsPlus) {
         btn.addEventListener('click', () => {
-            ({ totalCost, totalTime, totalWeight, totalCalorie } = addIngredient(btn.closest('.ingredients__card'), totalCost, totalTime, totalWeight, totalCalorie));
+            ({ totalCost, totalTime, totalWeight, totalCalorie } = addIngredient(btn.closest('.ingredients__card'), totalCost, totalTime, totalWeight, totalCalorie, btnsPlus));
 
             updateValues(totalCost, totalTime, totalWeight, totalCalorie);
         })
@@ -38,7 +38,7 @@ export default function burger() {
         }
 
         btn.addEventListener('click', () => {
-            ({ totalCost, totalTime, totalWeight, totalCalorie } = deleteIngredient(btn, btn.closest('.ingredients__card'), totalCost, totalTime, totalWeight, totalCalorie));
+            ({ totalCost, totalTime, totalWeight, totalCalorie } = deleteIngredient(btn, btn.closest('.ingredients__card'), totalCost, totalTime, totalWeight, totalCalorie, btnsPlus));
 
             updateValues(totalCost, totalTime, totalWeight, totalCalorie);
         })
