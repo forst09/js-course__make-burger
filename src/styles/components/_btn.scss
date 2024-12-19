@@ -24,6 +24,18 @@
             background-color: var(--indigo-indigo-600);
         }
     }
+
+    &--light {
+        background-color: var(--primary-titan-white);
+        color: var(--primary-primary);
+
+        @include m.hover {
+            &:hover {
+                background-color: var(--primary-primary);
+                color: var(--primary-titan-white);
+            }
+        }
+    }
 }
 
 .btn-hero {

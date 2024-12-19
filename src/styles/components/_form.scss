@@ -1,6 +1,5 @@
 .form {
     &__wrap {
-        padding: 16px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
@@ -71,10 +70,6 @@
             .form__input {
                 padding: 24px 44px 8px 16px;
             }
-
-            .form__label {
-                pointer-events: none;
-            }
         }
     }
 
@@ -99,6 +94,7 @@
         font-weight: 400;
         line-height: 20px;
         color: var(--primary-muted);
+        pointer-events: none;
         transition:
             top 0.3s ease,
             trnasform 0.3s ease;
@@ -112,17 +108,5 @@
 
     &__select {
         appearance: none;
-    }
-
-    &__actions {
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 16px;
-    }
-
-    &__actions-btn {
-        min-width: 120px;
     }
 }

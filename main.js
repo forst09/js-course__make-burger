@@ -3,6 +3,7 @@
 import burger from "./src/js/burger/burger";
 import showDialog from "./src/js/dialog/showDialog";
 import changeLabelPosition from "./src/js/form/changeLabelPosition";
+import submitCheckout from "./src/js/form/submitCheckout";
 import replaceHeaderItems from "./src/js/header/replaceHeaderItems";
 import tabs from "./src/js/tabs";
 
@@ -22,4 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
       showDialog(e);
     })
   }
+
+  submitCheckout();
 })

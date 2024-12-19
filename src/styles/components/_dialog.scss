@@ -59,6 +59,18 @@
         border-bottom: 1px solid var(--primary-titan-white);
     }
 
+    &__body {
+        padding: 16px;
+    }
+
+    &__bottom {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
     &__title {
         display: flex;
         gap: 8px;
@@ -72,5 +84,13 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+    }
+
+    &__bottom-btn {
+        min-width: 120px;
+    }
+
+    &__main-title {
+        text-align: center;
     }
 }
